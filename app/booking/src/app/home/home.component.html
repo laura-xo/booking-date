@@ -1,0 +1,24 @@
+<link type="text/css" rel="stylesheet" href="/styles.css" />
+
+<div class="form-container">
+
+<div class="success" *ngIf="successMsg" color="accent">{{ successMsg }}</div> 
+<div class="warn" *ngIf="errorMsg" color="warn">{{ errorMsg }}</div> 
+<form (submit)="createBooking()">
+
+
+<input class="date" [(ngModel)]="date" name="date" matInput [matDatepicker]="picker" placeholder="Choose a date">
+<mat-datepicker-toggle class="date" matSuffix [for]="picker"></mat-datepicker-toggle>
+<mat-datepicker class="date" #picker></mat-datepicker>
+
+    <mat-form-field>
+        <input [(ngModel)]="name" name="name" matInput placeholder="Name">
+    </mat-form-field>
+    <mat-form-field>
+        <input [(ngModel)]="email" name="email" matInput placeholder="Email">
+    </mat-form-field>
+    
+    <button mat-raised-button color="primary">Book</button>
+</form>
+
+</div>
